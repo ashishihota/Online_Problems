@@ -17,6 +17,7 @@
 #include <complex>
 #include <cmath>
 #include <numeric>
+
 #include <bitset>
 #include <functional>
 #include <random>
@@ -33,9 +34,19 @@ const int MOD = 1e9 + 7;
 #define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
-    ll n;
-    cin >> n;
-    cout <<(n*(n +1)) /2;
-
+    ll n, count = 1;
+    string s;
+    cin >> n >> s;
+    string v;
+    for(int i = 0 ; i < n-1; i++){
+        if( s[i] == s[i + 1]){
+            continue;
+        }
+        else{
+            v += s[i];
+            count++;
+        }
+    }
+    cout << count;
   return 0;
 }

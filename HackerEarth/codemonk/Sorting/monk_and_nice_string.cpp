@@ -35,7 +35,18 @@ const int MOD = 1e9 + 7;
 int main() {
     ll n;
     cin >> n;
-    cout <<(n*(n +1)) /2;
-
+    string s[n];
+    std::vector<ll> v;
+    for(int i = 0;i <n ;i++){
+        cin >> s[i];
+    }
+    for(int i = 0;i < n; i++){
+        ll cnt = 0;
+        for(int j = i -1; j >=0; j--){
+            if(s[i ] >= s[j]) cnt++;
+        }
+        v.push_back(cnt);
+    }
+    for(auto i: v) cout << i << endl;
   return 0;
 }

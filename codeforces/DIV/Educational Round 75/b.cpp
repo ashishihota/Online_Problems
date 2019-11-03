@@ -35,7 +35,14 @@ const int MOD = 1e9 + 7;
 int main() {
     ll n;
     cin >> n;
-    cout <<(n*(n +1)) /2;
+    while (n--) {
+        ll m;
+        cin >> m;
+        while(m--){
+            string s;
+            cin >> s;
+        }
+    }
 
   return 0;
 }

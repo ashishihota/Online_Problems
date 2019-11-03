@@ -35,7 +35,15 @@ const int MOD = 1e9 + 7;
 int main() {
     ll n;
     cin >> n;
-    cout <<(n*(n +1)) /2;
-
+    int v[n];
+    for(int i = 1; i <= n; i++){
+        v[i -1] =  i;
+    }
+    do{
+        for(int i = 0; i < n; i++){
+            cout << v[i] << " ";
+        }
+        cout << endl;
+    }while(next_permutation(v, v + n));
   return 0;
 }

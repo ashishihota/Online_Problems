@@ -33,9 +33,22 @@ const int MOD = 1e9 + 7;
 #define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
-    ll n;
-    cin >> n;
-    cout <<(n*(n +1)) /2;
+    ll a, b;
+    cin >> a >> b;
+    if (b - a > 1) cout << "-1" << endl;
+    else if(a  == 9 && b == 1){
+        cout << a * 100 + 99 << " ";
+        cout << b * 1000;
+    }
+    else if( a > b) cout << "-1" << endl;
+    else if(b-a == 1){
+        cout << a*100 + 99 << " ";
+        cout << b *100;
+    }
+    else{
+        cout << a * 100 + 44 << " ";
+        cout << b * 100 + 45;
+    }
 
   return 0;
 }

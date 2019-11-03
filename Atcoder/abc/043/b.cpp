@@ -33,7 +33,14 @@ const int MOD = 1e9 + 7;
 #define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
-
-
-  return 0;
+    string s, r;
+    cin >> s;
+    std::vector<char> v;
+    for(int i = 0; i < s.length(); i++){
+        if(s[i] == '0') r += '0';
+        if(s[i] == '1') r += '1';
+        else if(s[i] == 'B' && r.length() != 0) r.pop_back();
+    }
+    for(auto i: r) cout << i;
+    return 0;
 }

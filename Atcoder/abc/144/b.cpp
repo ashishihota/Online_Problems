@@ -35,7 +35,22 @@ const int MOD = 1e9 + 7;
 int main() {
     ll n;
     cin >> n;
-    cout <<(n*(n +1)) /2;
+    std::vector<ll> v;
+    for(int i =1 ;i <=9; i++){
+        for(int j = 1 ;j <= 9; j++){
+            v.push_back(i * j);
+        }
+
+    }
+    bool cnt  = false;
+    for(int i = 0;i < v.size(); i++){
+        if(v[i] == n) {
+            cnt = true;
+            break;
+        }
+    }
+    if(cnt ) cout << "Yes";
+    else cout << "No";
 
   return 0;
 }

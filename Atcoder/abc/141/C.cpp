@@ -1,22 +1,39 @@
-#include<bits/stdc++.h>
-
-typedef long long ll;
+#include <array>
+#include <cassert>
+#include <cstdio>
+#include <cstring>
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <vector>
+#include <queue>
+#include <stack>
+#include <list>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <unordered_map>
+#include <algorithm>
+#include <complex>
+#include <cmath>
+#include <numeric>
+#include <bitset>
+#include <functional>
+#include <random>
+#include <ctime>
 
 using namespace std;
 
-int main()  {
-    // N = players  K = points at the begining   Q = Total answered
-    int n, k, q,ans, inp;
-    cin >> n>> k >> q;
-    std::vector<ll> v(n,k -q);
-    for (int i = 0; i < q; i++){
-        cin >> inp;
-        ans  = inp -1;
-        v[ans] ++;
-    }
-    for (auto m: v) {
-        if (m > 0) cout << "Yes\n";
-        else cout<< "No\n";
-    }
-    return 0;
+
+typedef long long ll;
+typedef pair<int, int> pii;
+const int MOD = 1e9 + 7;
+
+#define rep(i,b) for(i=0;i<b;++i)
+#define repp(i,a,b) for(i=a;i<b;++i)
+
+int main() {
+
+
+  return 0;
 }

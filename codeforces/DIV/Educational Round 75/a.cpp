@@ -33,9 +33,32 @@ const int MOD = 1e9 + 7;
 #define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
-    ll n;
+    ll n ;
     cin >> n;
-    cout <<(n*(n +1)) /2;
+    while(n--){
+        string s, res ="",se ="";
+        cin >> s;
+        if(s.length() == 1) {
+            res += s;
+        }
+        else{
+            for(int i = 0;i < s.length(); i++){
+                if(s[i] != s[i + 1]){
+                    se += s[i];
+                }
+                else {
+                    i++;
+                }
+            }
+        }
+        sort(se.begin() , se.end());
+        for(int i = 0;i < se.length(); i++){
+            if(se[i] != se[i + 1]){
+                res += se[i];
+            }
+        }
+        cout << res << endl;
+    }
 
   return 0;
 }

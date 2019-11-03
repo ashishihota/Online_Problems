@@ -33,9 +33,22 @@ const int MOD = 1e9 + 7;
 #define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
-    ll n;
-    cin >> n;
-    cout <<(n*(n +1)) /2;
-
+    ll n, count = 0;
+    cin >>n;
+    std::vector<ll> v(n);
+    for(int i= 0; i < n; i++){
+        cin >> v[i];
+    }
+    for(int i = 0; i <= n - 3; i--){
+        if((v[i] < v[i + 1] + v[i +2]) && (v[i + 1] < v[i] + v[i +2]) && (v[i + 2] < v[i + 1] + v[i]))
+        {
+            v[i]--;
+            v[i + 1] --;
+            v[i + 2] --;
+            count++;
+            i--;
+        }
+    }
+    cout << count;
   return 0;
 }

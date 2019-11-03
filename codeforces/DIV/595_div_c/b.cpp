@@ -35,7 +35,31 @@ const int MOD = 1e9 + 7;
 int main() {
     ll n;
     cin >> n;
-    cout <<(n*(n +1)) /2;
+    for(int i = 0; i < n; i++){
+        ll num = 0;
+        cin >> num;
+        ll a[num], b[num];
+        for(int i = 0; i < num; i++){
+            cin >> a[i] - 1;
+        }
+        for(int i = 0; i < num; i++){
+            b[i] = i;
+        }
+        /*
+
+            b[i] = 0 1 2
+            a[i] = 1 2 0
+
+        */
+
+        for(int i = 0; i < num; i++){
+            ll cnt = 1;
+            for(int j = 0; j < num;){
+                if(b[j] == a[i]) cout << cnt;
+                else j = a[i];
+            }
+        }
+    }
 
   return 0;
 }

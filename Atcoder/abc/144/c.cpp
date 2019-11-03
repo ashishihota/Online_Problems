@@ -32,10 +32,28 @@ const int MOD = 1e9 + 7;
 #define rep(i,b) for(i=0;i<b;++i)
 #define repp(i,a,b) for(i=a;i<b;++i)
 
-int main() {
-    ll n;
-    cin >> n;
-    cout <<(n*(n +1)) /2;
+bool isPrime(ll n)
+{
+    // Corner case
+    if (n <= 1)
+        return false;
 
+    // Check from 2 to n-1
+    for (ll i = 2; i < n; i++)
+        if (n % i == 0)
+            return false;
+
+    return true;
+}
+int main() {
+    ll n, cnt = 0;
+    cin >> n;
+    ll a = round(sqrt(n));
+    while(n % a > 0){
+        a--;
+    }
+    ll b= n/a;
+    if(a == 1) cout << n -1;
+    else cout << (a + b - 2);
   return 0;
 }
