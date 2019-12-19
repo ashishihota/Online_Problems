@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
-
 using namespace std;
+
 
 typedef long long ll;
 typedef pair<int, int> pii;
@@ -10,7 +10,10 @@ const int MOD = 1e9 + 7;
 #define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
-    cout << "hello";
-
+    int n;
+    cin >> n;
+    while(n--){
+        
+    }
   return 0;
 }
