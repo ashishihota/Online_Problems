@@ -33,7 +33,15 @@ const int MOD = 1e9 + 7;
 #define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
-
+    ll n,m,cnt = 0;
+    cin >> n >> m;
+    for(int i = n; i <= m;){
+        n *= 3;
+        m *=2;
+        i = n;
+        cnt++;
+    }
+    cout << cnt;
 
   return 0;
 }

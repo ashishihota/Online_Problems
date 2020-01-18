@@ -10,15 +10,12 @@ const int MOD = 1e9 + 7;
 #define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
-    ll n, l = 0, r = 0;
-    cin >>n;
-    string s;
-    cin >> s;
-    for(int i = 0; i < s.length(); i++){
-        if(s[i] == 'L') l++;
-        else if(s[i] == 'R') r++;
+    ll n;
+    cin >> n;
+    ll v[n];
+    for(int i = 0; i < n; i++){
+        cin >> v[i];
     }
-    cout << l+r+1<<endl;
 
   return 0;
 }

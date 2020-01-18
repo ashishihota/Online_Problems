@@ -33,7 +33,26 @@ const int MOD = 1e9 + 7;
 #define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
+    ll sub, mx, avg;
+    cin >> sub >> mx >> avg;
+    ll v[sub],got = 0,tot =0;
+    tot = avg * sub;
+    for(int i = 0; i < sub -1; i++){
+        cin >> v[i];
+        got += v[i];
+    }
+    ll req;
+    req = tot -got;
+    // cout  << "req = " << req <<endl;
 
-
+    if(floor(double(got/sub)) >= avg){
+        cout <<0<<endl;
+    }
+    else  if(req > avg){
+        cout << -1<<endl;
+    }
+    else {
+        cout <<req <<endl;
+    }
   return 0;
 }

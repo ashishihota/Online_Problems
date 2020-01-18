@@ -33,7 +33,25 @@ const int MOD = 1e9 + 7;
 #define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
+    ll num;
+    cin >> num;
+    while (num--) {
+        ll n ,d, x, ans, best = 100010001;
+        cin >> n >> d;
+        if(n >= d) cout << "YES"<<endl;
+        else {
+            for(int i = d -1;  i > sqrt(d); i--){
+                x = ceil(n/(i+1));
+                ans = x + i;
+                cout << " i = " << i<<" x  = "<< x<<"  ans = "<<ans <<endl;
+                best =  min(ans, best);
+            }
+            cout << best <<" BEST "<<endl;
+            if(best <= n) cout << "YES" <<endl;
+            else cout << "NO"<<endl;
+        }
 
+    }
 
   return 0;
 }

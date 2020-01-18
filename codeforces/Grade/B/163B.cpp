@@ -33,7 +33,21 @@ const int MOD = 1e9 + 7;
 #define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
-
-
+	ll l,n, m;
+	cin >> n >> m;
+	string s;
+	bool j = true;
+	cin >> s;
+	// l = s.length();
+	while(m--){
+		for(int i = 0; i < n -1; i++){
+			if(s[i] == 'B' && s[i+1] == 'G'){
+				swap(s[i],s[i+1]);
+				i++;
+			}
+		}
+		// cout << s <<endl;
+	}
+	cout << s;
   return 0;
 }

@@ -33,12 +33,31 @@ const int MOD = 1e9 + 7;
 #define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
-
-
+    string s;
+    cin >> s;
+    ll l = s.length(), f = 0, se = 0, md = l/2;
+    for(int i= 0;i < l; i++){
+        if(s[i] == '4') f++;
+        else if(s[i] == '7') se++;
+    }
+    ll mx = max(f,se);
+    for(int i = 0;i < l; i++){
+        if(s[i] == '7' || s[i] == '4') continue;
+        else{
+            s[i] = '4';
+        }
+    }
     return 0;
 }
+
+
+
+
+
+
+
 /*
-         ,--"""",--.__,---[],-------._         
+         ,--"""",--.__,---[],-------._
        ,"   __,'            \         \--""""""==;-
      ," _,-"  "/---.___     \       ___\   ,-'',"
     /,-'      / ;. ,.--'-.__\  _,-"" ,| `,'   /

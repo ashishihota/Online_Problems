@@ -33,7 +33,16 @@ const int MOD = 1e9 + 7;
 #define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
-
-
+    ll n, k, m,sum = 0,req,tot;
+    cin >> n >> k >> m; // n = num / k = max / m = avg;
+    ll v[n];
+    for(int i = 0; i <  n -1; i++){
+        cin >> v[i];
+        sum += v[i];
+    }
+    tot  = m * n;
+    req = tot - sum;
+    if(req > k ) cout << -1 <<endl;
+    else cout << max(ll(0),req)<<endl;
   return 0;
 }
