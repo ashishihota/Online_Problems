@@ -10,14 +10,7 @@ const int MOD = 1e9 + 7;
 #define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
-
-    double h,w,n;
-    cin >> h >> w >> n;
-    ll ans1 =0 , ans2 = 0;
-    ans1 = ceil(double(n/h));
-    ans2 = ceil(double(n/w));
-    // cout << ans1 << " " << ans2 << endl;
-    cout << min(ans1,ans2) <<endl;
+    
 
   return 0;
 }

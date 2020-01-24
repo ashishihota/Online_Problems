@@ -32,13 +32,22 @@ const int MOD = 1e9 + 7;
 #define rep(i,b) for(i=0;i<b;++i)
 #define repp(i,a,b) for(i=a;i<b;++i)
 
-int main() {
 
+int main() {
+    ll n, cnt = 0;
+    cin >> n;
+    while(true){
+        if(prime[cnt] >= n) {
+            cout << prime[cnt];
+            break;
+        }
+        else cnt++;
+    }
 
     return 0;
 }
 /*
-         ,--"""",--.__,---[],-------._         
+         ,--"""",--.__,---[],-------._
        ,"   __,'            \         \--""""""==;-
      ," _,-"  "/---.___     \       ___\   ,-'',"
     /,-'      / ;. ,.--'-.__\  _,-"" ,| `,'   /

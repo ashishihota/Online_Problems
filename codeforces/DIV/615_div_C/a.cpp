@@ -33,12 +33,30 @@ const int MOD = 1e9 + 7;
 #define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
-
+    ll num;
+    cin >> num;
+    while(num--){
+        ll a, b, c, n;
+        cin >> a >> b >> c >> n;
+        ll sum = a + b + c + n;
+        if(sum % 3 != 0) {
+            cout << "NO"<< endl;
+            continue;
+        }
+        else{
+            ll avg;
+            avg = sum / 3;
+            if(a > avg || b > avg || c > avg){
+                cout << "NO"<<endl;
+            }
+            else cout << "YES" <<endl;
+        }
+    }
 
     return 0;
 }
 /*
-         ,--"""",--.__,---[],-------._         
+         ,--"""",--.__,---[],-------._
        ,"   __,'            \         \--""""""==;-
      ," _,-"  "/---.___     \       ___\   ,-'',"
     /,-'      / ;. ,.--'-.__\  _,-"" ,| `,'   /

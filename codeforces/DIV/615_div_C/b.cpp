@@ -6,6 +6,7 @@
 #include <string>
 #include <sstream>
 #include <vector>
+#include <utility>
 #include <queue>
 #include <stack>
 #include <list>
@@ -33,12 +34,33 @@ const int MOD = 1e9 + 7;
 #define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
+    ll num;
+    cin >> num;
+    while(num--){
+        ll n;
+        bool flag = false;
+        cin >> n;
+        std::vector<vector<ll>> v(n);
+        for(int i = 0;i < n; i++){
+            ll x , y;
+            cin >> x >> y;
+            v.push_back(x);
+            v[x] = y;
+            v[x][y] = 1;
+            if(x != y && v[y][x]){
+                cout << "NO"<<endl;
+                flag  = true;
+            }
+        }
+        //if(flag) continue;
+        sort(v.begin(), v.end());
 
+    }
 
     return 0;
 }
 /*
-         ,--"""",--.__,---[],-------._         
+         ,--"""",--.__,---[],-------._
        ,"   __,'            \         \--""""""==;-
      ," _,-"  "/---.___     \       ___\   ,-'',"
     /,-'      / ;. ,.--'-.__\  _,-"" ,| `,'   /

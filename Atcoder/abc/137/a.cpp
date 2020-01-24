@@ -33,12 +33,17 @@ const int MOD = 1e9 + 7;
 #define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
-
+    ll a ,b, sum , sub, mul;
+    cin >> a >> b;
+    sum = a + b;
+    sub = a - b;
+    mul = a * b;
+    cout << max( sum , max(sub,mul))<< endl;
 
     return 0;
 }
 /*
-         ,--"""",--.__,---[],-------._         
+         ,--"""",--.__,---[],-------._
        ,"   __,'            \         \--""""""==;-
      ," _,-"  "/---.___     \       ___\   ,-'',"
     /,-'      / ;. ,.--'-.__\  _,-"" ,| `,'   /

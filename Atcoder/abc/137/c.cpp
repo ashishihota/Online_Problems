@@ -33,12 +33,29 @@ const int MOD = 1e9 + 7;
 #define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
-
-
+    ll n ,nn;
+    cin >> n;
+    nn = n;
+    unordered_set<string> us;
+    std::vector<string> v(n);
+    while (nn--) {
+        string s;
+        cin >> s;
+        sort(s.begin(), s.end());
+        v.push_back(s);
+    }
+    sort(v.begin(),v.end());
+    ll ans = 0;
+    for(int i = 0; i < n - 1; i++){
+        for(int j = i + 1 ; i < n; j++){
+            if(v[i] == v[j]) ans++;
+        }
+    }
+    cout << ans;
     return 0;
 }
 /*
-         ,--"""",--.__,---[],-------._         
+         ,--"""",--.__,---[],-------._
        ,"   __,'            \         \--""""""==;-
      ," _,-"  "/---.___     \       ___\   ,-'',"
     /,-'      / ;. ,.--'-.__\  _,-"" ,| `,'   /

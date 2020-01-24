@@ -33,12 +33,26 @@ const int MOD = 1e9 + 7;
 #define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
-
-
+    ll k, x, b;
+    set<ll> s;
+    bool as = true;
+    cin >> k >> x;
+    while(k--){
+        ll c , cc;
+        c = x -k;
+        cc = x + k;
+        if( c >= -1000000){
+            s.insert(c);
+        }
+        if( cc <= 1000000){
+            s.insert(cc);
+        }
+    }
+    for(auto i : s) cout << i << " ";
     return 0;
 }
 /*
-         ,--"""",--.__,---[],-------._         
+         ,--"""",--.__,---[],-------._
        ,"   __,'            \         \--""""""==;-
      ," _,-"  "/---.___     \       ___\   ,-'',"
     /,-'      / ;. ,.--'-.__\  _,-"" ,| `,'   /
