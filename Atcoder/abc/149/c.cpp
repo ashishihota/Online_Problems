@@ -37,13 +37,17 @@ int main() {
     ll n, cnt = 0;
     cin >> n;
     while(true){
-        if(prime[cnt] >= n) {
-            cout << prime[cnt];
-            break;
+      bool flag = true;
+      for(int i = 2; i < n; i++){
+        if(n % i == 0){
+          flag = false;
+          break;
         }
-        else cnt++;
+      }
+      if(flag) break;
+      ++x;
     }
-
+    cout << x;
     return 0;
 }
 /*

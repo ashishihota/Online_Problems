@@ -1,69 +1,35 @@
-#include <array>
-#include <cassert>
-#include <cstdio>
-#include <cstring>
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <vector>
-#include <queue>
-#include <stack>
-#include <list>
-#include <set>
-#include <map>
-#include <unordered_set>
-#include <unordered_map>
-#include <algorithm>
-#include <complex>
-#include <cmath>
-#include <numeric>
-#include <bitset>
-#include <functional>
-#include <random>
-#include <ctime>
+#include<bits/stdc++.h>
 
 using namespace std;
 
+
 typedef long long ll;
 typedef pair<int, int> pii;
-
 const int MOD = 1e9 + 7;
-const ll INF = 1e9;
 
-#define rep(i,b) for(int i=0;i<b;++i)
-#define repp(i,a,b) for(int i=a;i<b;++i)
+#define rep(i,b) for(i=0;i<b;++i)
+#define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
+    ll mx  = 998244353 ;
     ll num;
-    ll ans = -1, anss = -1;
     cin >> num;
-    while(num--){
-        ll n,s,k;
-        cin >> n >> s >> k;
-        std::vector<bool> v(n + 1,1);
-        for(int i = 1; i <= k; i++){
-            ll x; cin >> x;
-            v[x] = 0;
-        }
-        if(v[s]) {
-            cout << 0 <<endl;
-            continue;
-        }
-        for(int i = s; i <= n; i++ ){
-            if(v[i]){
-                ans  = i;
-                break;
+    while (num--) {
+        ll n;
+        cin >> n;
+        ll x = n / 2;
+        if(n % 2 == 0){
+            for(int i = 0;i < x; i++){
+                cout << "1";
             }
+            cout << endl;
         }
-        for(int i = s; i >1 ; i--){
-            if(v[i]){
-                anss  = i;
-                break;
+        else{
+            x--;
+            cout << "7";
+            for(int i=0 ; i< x; i++){
+                cout << "1";
             }
-        }
-        if(ans >= 0 && anss >= 0){
-            cout <<"ans = "<< ans <<"  " <<  anss;
-            cout << min(ans -s , s -ans)<< endl;
         }
     }
     return 0;

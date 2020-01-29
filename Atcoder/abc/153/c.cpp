@@ -24,48 +24,32 @@
 
 using namespace std;
 
+
 typedef long long ll;
 typedef pair<int, int> pii;
-
 const int MOD = 1e9 + 7;
-const ll INF = 1e9;
 
-#define rep(i,b) for(int i=0;i<b;++i)
-#define repp(i,a,b) for(int i=a;i<b;++i)
+#define rep(i,b) for(i=0;i<b;++i)
+#define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
-    ll num;
-    ll ans = -1, anss = -1;
-    cin >> num;
-    while(num--){
-        ll n,s,k;
-        cin >> n >> s >> k;
-        std::vector<bool> v(n + 1,1);
-        for(int i = 1; i <= k; i++){
-            ll x; cin >> x;
-            v[x] = 0;
-        }
-        if(v[s]) {
-            cout << 0 <<endl;
-            continue;
-        }
-        for(int i = s; i <= n; i++ ){
-            if(v[i]){
-                ans  = i;
-                break;
-            }
-        }
-        for(int i = s; i >1 ; i--){
-            if(v[i]){
-                anss  = i;
-                break;
-            }
-        }
-        if(ans >= 0 && anss >= 0){
-            cout <<"ans = "<< ans <<"  " <<  anss;
-            cout << min(ans -s , s -ans)<< endl;
-        }
+    ll n ,k ;
+    cin >> n >> k;
+    ll a[n];
+    for(int i = 0 ;i < n; i++){
+        cin >> a[i];
     }
+    sort(a, a+n);
+    reverse(a, a+n);
+    for(int i = min(n,k) -1; i>= 0;i--){
+        a[i] = 0;
+    }
+    // for(auto i : a) cout << i << " "; cout << endl;
+    ll sum = 0;
+    for(int i = 0;i <n;i++){
+        sum += a[i];
+    }
+    cout << sum;
     return 0;
 }
 /*

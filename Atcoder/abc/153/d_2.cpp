@@ -24,48 +24,26 @@
 
 using namespace std;
 
+typedef long double ld;
 typedef long long ll;
 typedef pair<int, int> pii;
-
 const int MOD = 1e9 + 7;
-const ll INF = 1e9;
+const long double INF = 1e12 ;
 
-#define rep(i,b) for(int i=0;i<b;++i)
-#define repp(i,a,b) for(int i=a;i<b;++i)
+#define rep(i,b) for(i=0;i<b;++i)
+#define repp(i,a,b) for(i=a;i<b;++i)
+
+ll sum(ll n){
+    if(n == 1) return 1;
+    else{
+        if(v[n])
+    }
+}
 
 int main() {
-    ll num;
-    ll ans = -1, anss = -1;
-    cin >> num;
-    while(num--){
-        ll n,s,k;
-        cin >> n >> s >> k;
-        std::vector<bool> v(n + 1,1);
-        for(int i = 1; i <= k; i++){
-            ll x; cin >> x;
-            v[x] = 0;
-        }
-        if(v[s]) {
-            cout << 0 <<endl;
-            continue;
-        }
-        for(int i = s; i <= n; i++ ){
-            if(v[i]){
-                ans  = i;
-                break;
-            }
-        }
-        for(int i = s; i >1 ; i--){
-            if(v[i]){
-                anss  = i;
-                break;
-            }
-        }
-        if(ans >= 0 && anss >= 0){
-            cout <<"ans = "<< ans <<"  " <<  anss;
-            cout << min(ans -s , s -ans)<< endl;
-        }
-    }
+    ll n;
+    cin >> n;
+    sum(n);
     return 0;
 }
 /*

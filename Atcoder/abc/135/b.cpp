@@ -24,48 +24,43 @@
 
 using namespace std;
 
+
 typedef long long ll;
 typedef pair<int, int> pii;
-
 const int MOD = 1e9 + 7;
-const ll INF = 1e9;
 
-#define rep(i,b) for(int i=0;i<b;++i)
-#define repp(i,a,b) for(int i=a;i<b;++i)
+#define rep(i,b) for(i=0;i<b;++i)
+#define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
-    ll num;
-    ll ans = -1, anss = -1;
-    cin >> num;
-    while(num--){
-        ll n,s,k;
-        cin >> n >> s >> k;
-        std::vector<bool> v(n + 1,1);
-        for(int i = 1; i <= k; i++){
-            ll x; cin >> x;
-            v[x] = 0;
-        }
-        if(v[s]) {
-            cout << 0 <<endl;
-            continue;
-        }
-        for(int i = s; i <= n; i++ ){
-            if(v[i]){
-                ans  = i;
+    ll n;
+    cin >> n;
+    std::vector<ll> a(n);
+    std::vector<ll> b(n);
+    for(int i = 0;i < n; i++){
+        ll c;
+        cin >> c;
+        a.push_back(c);
+    }
+    a = b;
+    bool flag  = false, flagg = false;
+    for(int i = 1; i < n; i++){
+        for(int j = 0; j < i; j++){
+            if(a[i] > b[i]) {
+                swap(a[i],b[j]);
                 break;
+                flag = true;
             }
         }
-        for(int i = s; i >1 ; i--){
-            if(v[i]){
-                anss  = i;
-                break;
-            }
-        }
-        if(ans >= 0 && anss >= 0){
-            cout <<"ans = "<< ans <<"  " <<  anss;
-            cout << min(ans -s , s -ans)<< endl;
+        if(flag) break;
+    }
+    for(int i = 0;i < n; i++){
+        if(a[i] != b[i]) {
+            flagg = true;
         }
     }
+    if(flagg) cout << "NO";
+    else cout << "YES";
     return 0;
 }
 /*
