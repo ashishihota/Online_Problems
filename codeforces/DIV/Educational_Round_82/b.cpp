@@ -14,22 +14,28 @@ int main() {
     ll num;
     cin >> num;
     while (num--) {
-        ll n;
-        cin >> n;
-        if(n % 2 == 1){
-            cout << "7";
-            n -= 3;
-            for(int i =0; i< (n / 2); i++){
-                cout << "1";
-            }
+        ll len, g, b, days = 0, cnt= 0;
+        cin >> len >> g >> b;
+        ll mid = (len + 1) / 2;
+        if(len  - g <= 0){
+            cout << len << endl;
+            continue;
         }
         else {
-            for(int i = 0;i < (n/2) ; i++){
-                cout << "1";
+            for(int i = mid; i >= 0;){
+                if((len - b) <= 0){
+                    days = days + g + b;
+                    mid -= g;
+                }
+                else{
+                    days += g + b;
+                    mid -= g;
+                }
             }
         }
-        cout << endl;
+        cout << days << endl;
     }
+    return 0;
 }
 /*
          ,--"""",--.__,---[],-------._

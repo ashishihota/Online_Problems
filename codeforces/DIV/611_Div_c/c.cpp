@@ -11,6 +11,8 @@ const int MOD = 1e9 + 7;
 
 int main() {
     cout << "hello";
-
+    ll z;
+    cin >> z;
+    cout << z;
   return 0;
 }

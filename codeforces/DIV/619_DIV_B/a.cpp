@@ -13,23 +13,30 @@ const int MOD = 1e9 + 7;
 int main() {
     ll num;
     cin >> num;
-    while (num--) {
-        ll n;
-        cin >> n;
-        if(n % 2 == 1){
-            cout << "7";
-            n -= 3;
-            for(int i =0; i< (n / 2); i++){
-                cout << "1";
+    while(num--){
+        string a, b, c;
+        cin >> a >> b >> c;
+        bool flag = true;
+        for(int i = 0; i < a.length(); i++){
+            if(a[i] == b[i]){
+                if(a[i] != c[i]){
+                    flag = false;
+                    break;
+                }
+                else continue;
+            }
+            else if((a[i] == c[i]) || b[i] == c[i]){
+                continue;
+            }
+            else {
+                flag = false;
+                break;
             }
         }
-        else {
-            for(int i = 0;i < (n/2) ; i++){
-                cout << "1";
-            }
-        }
-        cout << endl;
+        if(flag) cout << "YES" << endl;
+        else cout << "NO" << endl;
     }
+    return 0;
 }
 /*
          ,--"""",--.__,---[],-------._

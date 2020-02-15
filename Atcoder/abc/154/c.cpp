@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -12,24 +12,21 @@ const int MOD = 1e9 + 7;
 
 int main() {
     ll num;
+    bool flag = false;
     cin >> num;
-    while (num--) {
-        ll n;
-        cin >> n;
-        if(n % 2 == 1){
-            cout << "7";
-            n -= 3;
-            for(int i =0; i< (n / 2); i++){
-                cout << "1";
-            }
+    std::vector<bool> v(1001001001,false);
+    for(int i = 0; i < num; i++){
+        ll x;
+        cin >> x;
+        if(v[x]){
+            cout <<"NO";
+            flag  = true;
+            break;
         }
-        else {
-            for(int i = 0;i < (n/2) ; i++){
-                cout << "1";
-            }
-        }
-        cout << endl;
+        else v[x] = true;
     }
+    if(!flag) cout << "YES";
+    return 0;
 }
 /*
          ,--"""",--.__,---[],-------._

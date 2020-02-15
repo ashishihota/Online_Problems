@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -11,25 +11,12 @@ const int MOD = 1e9 + 7;
 #define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
-    ll num;
-    cin >> num;
-    while (num--) {
-        ll n;
-        cin >> n;
-        if(n % 2 == 1){
-            cout << "7";
-            n -= 3;
-            for(int i =0; i< (n / 2); i++){
-                cout << "1";
-            }
-        }
-        else {
-            for(int i = 0;i < (n/2) ; i++){
-                cout << "1";
-            }
-        }
-        cout << endl;
-    }
+    string s;
+    cin >> s;
+    int l;
+    l = s.length();
+    cout << string(l,'x');
+    return 0;
 }
 /*
          ,--"""",--.__,---[],-------._

@@ -13,23 +13,29 @@ const int MOD = 1e9 + 7;
 int main() {
     ll num;
     cin >> num;
-    while (num--) {
-        ll n;
-        cin >> n;
-        if(n % 2 == 1){
-            cout << "7";
-            n -= 3;
-            for(int i =0; i< (n / 2); i++){
-                cout << "1";
+    while(num--){
+        ll n, frst = -1, lst =-1;
+        string s;
+        cin >> s;
+        for(int i = 0; i < s.length(); i++){
+            if(s[i] == '1'){
+                frst = i;
+                break;
             }
         }
-        else {
-            for(int i = 0;i < (n/2) ; i++){
-                cout << "1";
+        for(int i = s.length() - 1; i >=0 ; i--){
+            if(s[i] == '1'){
+                lst = i;
+                break;
             }
         }
-        cout << endl;
+        ll cnt = 0;
+        for(int i = frst; i < lst; i++){
+            if(s[i] == '0') cnt++;
+        }
+        cout << cnt << endl;
     }
+    return 0;
 }
 /*
          ,--"""",--.__,---[],-------._

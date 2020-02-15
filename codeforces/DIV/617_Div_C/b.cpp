@@ -14,22 +14,14 @@ int main() {
     ll num;
     cin >> num;
     while (num--) {
-        ll n;
+        ll n, ans, tot;
         cin >> n;
-        if(n % 2 == 1){
-            cout << "7";
-            n -= 3;
-            for(int i =0; i< (n / 2); i++){
-                cout << "1";
-            }
-        }
-        else {
-            for(int i = 0;i < (n/2) ; i++){
-                cout << "1";
-            }
-        }
-        cout << endl;
+        tot = n;
+        ans = n / 10;
+        tot += ans;
+        cout << tot << endl;
     }
+    return 0;
 }
 /*
          ,--"""",--.__,---[],-------._

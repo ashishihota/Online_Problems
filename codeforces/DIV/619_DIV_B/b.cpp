@@ -13,23 +13,34 @@ const int MOD = 1e9 + 7;
 int main() {
     ll num;
     cin >> num;
-    while (num--) {
+    while(num--){
         ll n;
         cin >> n;
-        if(n % 2 == 1){
-            cout << "7";
-            n -= 3;
-            for(int i =0; i< (n / 2); i++){
-                cout << "1";
+        std::vector<ll> v(n);
+        for(int i = 0; i < n; i++){
+            cin >> v[i];
+        }
+        ll diff = -1, mxdif = -1;
+        for(int i = 0; i < n - 2; i++){
+            if(v[i] == -1|| v[i + 2] == -1) continue;
+            else {
+                diff = v[i + 2] + v[i];
+                mxdif = max(diff, mxdif);
             }
         }
-        else {
-            for(int i = 0;i < (n/2) ; i++){
-                cout << "1";
-            }
+        ll mid = mxdif / 2;
+        for(int i = 0; i < n; i++){
+            if(v[i] == -1) v[i] = mid;
         }
-        cout << endl;
+        ll sub, mindif = 1001001001;
+    //for(auto i : v) cout << i << " "; cout << endl;
+        for(int i = 0; i < n - 1; i++){
+            sub = v[i + 1] - v[i];
+            mindif = min (sub , mindif);
+        }
+        cout << abs(mindif)<<" "<< mid <<  endl;
     }
+    return 0;
 }
 /*
          ,--"""",--.__,---[],-------._

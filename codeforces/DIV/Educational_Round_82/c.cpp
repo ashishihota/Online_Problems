@@ -13,23 +13,26 @@ const int MOD = 1e9 + 7;
 int main() {
     ll num;
     cin >> num;
-    while (num--) {
-        ll n;
-        cin >> n;
-        if(n % 2 == 1){
-            cout << "7";
-            n -= 3;
-            for(int i =0; i< (n / 2); i++){
-                cout << "1";
+    while(num--){
+        string s;
+        int no = 0;
+        pair<string, string> pr;
+        set<pr> sp;
+        std::vector<bool> v(100, false);
+        cin >> s;
+        for(int i = 0; i < s.length() - 1; i++){
+            int n = (int)s[i] - '0';
+            int m = (int)s[i + 1] - '0';
+            if(!v[n] || !v[m]){
+                v[n] = true;
+                v[m] = true;
+                pair p = make_pair(s[i], s[i + 1]);
+                sp.insert(p);
             }
         }
-        else {
-            for(int i = 0;i < (n/2) ; i++){
-                cout << "1";
-            }
-        }
-        cout << endl;
+        for(auto i : pr) cout << i  << " ";
     }
+    return 0;
 }
 /*
          ,--"""",--.__,---[],-------._

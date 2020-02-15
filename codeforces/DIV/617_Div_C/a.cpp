@@ -14,22 +14,19 @@ int main() {
     ll num;
     cin >> num;
     while (num--) {
-        ll n;
+        ll n, odd = 0, even = 0;
         cin >> n;
-        if(n % 2 == 1){
-            cout << "7";
-            n -= 3;
-            for(int i =0; i< (n / 2); i++){
-                cout << "1";
-            }
+        std::vector<ll> v(n);
+        for(int i = 0;i < n; i++){
+            cin >> v[i];
+            if(v[i] % 2 == 0)even++;
+            else if(v[i] %2 != 0) odd++;
         }
-        else {
-            for(int i = 0;i < (n/2) ; i++){
-                cout << "1";
-            }
-        }
-        cout << endl;
+        if((even != 0) && (odd != 0)) cout << "YES" << endl;
+        else if((even == 0) && (odd % 2 != 0 )) cout << "YES" << endl;
+        else cout << "NO" << endl;
     }
+    return 0;
 }
 /*
          ,--"""",--.__,---[],-------._
