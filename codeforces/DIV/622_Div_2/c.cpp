@@ -11,17 +11,38 @@ const int MOD = 1e9 + 7;
 #define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
-    ll t;
-    cin >> t;
-    while(t--){
-        bool flag  = false;
-        ll x, y, a, b, n = 0;
-        cin >> x >> y >> a >> b;
-        ll diff = y - x;
-        ll ans = diff / (a + b);
-        if((a * ans) + ( b * ans) == diff) cout << ans << endl;
-        else cout << "-1" << endl; 
+    ll n, mn = MOD, pos = -1;
+    ll dec = 0, inc = 0;
+    cin >> n;
+    std::vector<ll> v(n + 1);
+    for(int i = 1; i <= n; i++){
+        cin >> v[i];
+        if(v[i] < mn){
+            mn = v[i];
+            pos = i;
+        }
     }
+    for(int i = 1; i < n; i++){
+        if(v[i] > v[i + 1]) dec++;
+        else inc++;
+    }
+    if(dec > inc){
+        for(int i = pos; i <= n; i++){
+            v[i] = mn;
+        }
+        for(int i = pos; i > 1; i--){
+            v[i] = min(v[i - 1], v[i + 1]);
+        }
+    }
+    else{
+        for(int i = pos; i <= n; i++){
+            v[i] = min(v[i - 1], v[i + 1]);
+        }
+        for(int i = pos; i > 0; i++){
+            v[i] = mn;
+        }
+    }
+    for(auto i : v) cout << i << " ";
     return 0;
 }
 /*

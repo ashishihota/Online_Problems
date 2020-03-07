@@ -14,13 +14,18 @@ int main() {
     ll t;
     cin >> t;
     while(t--){
-        bool flag  = false;
-        ll x, y, a, b, n = 0;
-        cin >> x >> y >> a >> b;
-        ll diff = y - x;
-        ll ans = diff / (a + b);
-        if((a * ans) + ( b * ans) == diff) cout << ans << endl;
-        else cout << "-1" << endl; 
+        int h, d;
+        cin >> h >> d;
+        int v[h];
+        for(int i = 0; i < h; i++){
+            cin >> v[i];
+        }
+        for(int i = 1; i <= d; i++){
+            int m = min(v[i], d/(i -1));
+            v[0] += m;
+            d -= m*(i -1);
+        }
+        cout << v[0] << endl;
     }
     return 0;
 }

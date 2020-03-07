@@ -10,12 +10,47 @@ const int MOD = 1e9 + 7;
 #define rep(i,b) for(i=0;i<b;++i)
 #define repp(i,a,b) for(i=a;i<b;++i)
 
-int main() {
+bool ispal(string s){
+    ll b = 0, e = s.length() - 1;
+    while(b <= e){
+        if(s[b] != s[e]){
+            return false;
+        }
+        b++;
+        e--;
+    }
+    return true;
+}
 
+int main() {
+    ll n, l;
+    cin >> n >> l;
+    set<string> st;
+    string pal, an, na;
+    for(int i = 0; i < n; i++){
+        string s;
+        cin >> s;
+        string rs = s;
+        if(ispal(s)){
+            pal = s;
+            continue;
+        }
+        reverse(rs.begin(), rs.end());
+        if(st.count(rs)){
+            an += s;
+            st.erase(rs);
+        }
+        st.insert(s);
+    }
+    string z = an;
+    reverse(z.begin(), z.end());
+    string ans = an + pal + z;
+    ll len = ans.length();
+    cout << len << endl << ans;
     return 0;
 }
 /*
-         ,--"""",--.__,---[],-------._         
+         ,--"""",--.__,---[],-------._
        ,"   __,'            \         \--""""""==;-
      ," _,-"  "/---.___     \       ___\   ,-'',"
     /,-'      / ;. ,.--'-.__\  _,-"" ,| `,'   /

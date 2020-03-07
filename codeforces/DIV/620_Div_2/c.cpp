@@ -10,12 +10,38 @@ const int MOD = 1e9 + 7;
 #define rep(i,b) for(i=0;i<b;++i)
 #define repp(i,a,b) for(i=a;i<b;++i)
 
+
+// I copied this code from a grandmaster's answer.
 int main() {
+    ll t;
+    cin >> t;
+    while(t--){
+        ll n, beg;
+        cin >> n >> beg;
+        std::vector<pair<ll, pair<ll, ll>>> v(n);
+        for(int i = 0; i < n; i++){
+            cin >> v[i].first >> v[i].second.first >> v[i].second.second;
+        }
+        sort(v.begin(), v.end());
+        ll prev = 0;
+        ll mn = beg, mx = beg;
+        bool flag = true;
+        for(int i = 0; i < n; i++){
+            mn -= v[i].first - prev;
+            mx += v[i].first - prev;
+            prev = v[i].first;
+            mn = max(mn, v[i].second.first);
+            mx = min(mx, v[i].second.second);
+            if(mn > mx) flag = false;
+        }
+        if(flag) cout << "YES"<< endl;
+        else cout << "NO" << endl;
+    }
 
     return 0;
 }
 /*
-         ,--"""",--.__,---[],-------._         
+         ,--"""",--.__,---[],-------._
        ,"   __,'            \         \--""""""==;-
      ," _,-"  "/---.___     \       ___\   ,-'',"
     /,-'      / ;. ,.--'-.__\  _,-"" ,| `,'   /

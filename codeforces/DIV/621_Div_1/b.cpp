@@ -11,21 +11,11 @@ const int MOD = 1e9 + 7;
 #define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
-    ll t;
-    cin >> t;
-    while(t--){
-        bool flag  = false;
-        ll x, y, a, b, n = 0;
-        cin >> x >> y >> a >> b;
-        ll diff = y - x;
-        ll ans = diff / (a + b);
-        if((a * ans) + ( b * ans) == diff) cout << ans << endl;
-        else cout << "-1" << endl; 
-    }
+
     return 0;
 }
 /*
-         ,--"""",--.__,---[],-------._
+         ,--"""",--.__,---[],-------._         
        ,"   __,'            \         \--""""""==;-
      ," _,-"  "/---.___     \       ___\   ,-'',"
     /,-'      / ;. ,.--'-.__\  _,-"" ,| `,'   /

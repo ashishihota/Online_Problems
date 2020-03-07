@@ -14,13 +14,38 @@ int main() {
     ll t;
     cin >> t;
     while(t--){
-        bool flag  = false;
-        ll x, y, a, b, n = 0;
-        cin >> x >> y >> a >> b;
-        ll diff = y - x;
-        ll ans = diff / (a + b);
-        if((a * ans) + ( b * ans) == diff) cout << ans << endl;
-        else cout << "-1" << endl; 
+        ll cnt = 0;
+        std::vector<ll> v(3);
+        for(int i = 0; i < 3; i++){
+            cin >> v[i];
+        }
+        sort(v.begin(), v.end());
+        reverse(v.begin(), v.end());
+        for(int i = 0; i < 3; i++){
+            if(v[i] != 0){
+                v[i]--;
+                cnt++;
+            }
+        }
+        if(v[0] != 0 && v[1] != 0){
+            cnt++;
+            v[0]--; v[1]--;
+        }
+        if(v[2] != 0 && v[1] != 0){
+            cnt++;
+            v[2]--; v[1]--;
+        }
+        if(v[0] != 0 && v[2] != 0){
+            cnt++;
+            v[0]--; v[2]--;
+        }
+        if(v[0]!=0 && v[1] !=0 && v[2] != 0){
+            v[0]--;
+            v[1]--;
+            v[2]--;
+            cnt++;
+        }
+        cout << cnt << endl;
     }
     return 0;
 }

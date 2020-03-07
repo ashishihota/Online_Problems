@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -11,17 +11,84 @@ const int MOD = 1e9 + 7;
 #define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
-    ll t;
-    cin >> t;
-    while(t--){
-        bool flag  = false;
-        ll x, y, a, b, n = 0;
-        cin >> x >> y >> a >> b;
-        ll diff = y - x;
-        ll ans = diff / (a + b);
-        if((a * ans) + ( b * ans) == diff) cout << ans << endl;
-        else cout << "-1" << endl; 
+    ll n, k, zero  = 0, cnt = 0;
+    cin >> n >> k;
+    std::vector<ll> vp, vn, v;
+    for(int i = 0; i < n; i++){
+        ll a;
+        cin >> a ;
+        if(a <= 0){
+            vn.push_back(a);
+        }
+        else vp.push_back(a);
     }
+    sort(vp.begin(), vp.end()); sort(vn.begin(), vn.end());
+
+
+    // for all the combinations of -ve and +ve
+    bool flag = false;
+    ll np = vp.size(), nn = vn.size(),nnn = 0;
+    if(np != 0 && nn != 0){
+        for(int i = 0; i < nn; i++){
+            for(int j = 0; j < np; j++){
+                ll ans = vp[j] * vn[i];
+                v.push_back(ans);
+                cnt++;
+                if(cnt > k){
+                    flag  = true;
+                }
+            }
+            nnn++;
+            if(flag){
+                cout << endl << "cnt = " << cnt;
+                break;
+            };
+        }
+    }
+    cout << "\n cnt after combinations = "<< cnt << endl;
+
+
+    // for all the -ve nums
+    if(!flag){
+        cout << "reverse \n" ;
+        reverse(vn.begin(), vn.end());
+        for(int i = 0; i < nn; i++){
+            for(int j = i + 1; j < nn; j++){
+                ll ans = vn[i] * vn[j];
+                v.push_back(ans);
+                cnt++;
+                if(cnt > k) {
+                    //cout << "\nflag in -ve";
+                    flag = true;
+                }
+            }
+            if(flag) break;
+        }
+        //cout << "\n cnt after the -ve "<< cnt << endl;
+    }
+
+    // for all the remaining +ve nums;
+    if(!flag){
+        cout << "pos" << endl;
+        for(int i  = 0; i < np; i++){
+            for(int j = i + 1; j < np; j++){
+                ll ans  = vp[i] * vp[j];
+                v.push_back(ans);
+                cnt++;
+                if(cnt > k){
+                    //cout << "\n flag in +ve";
+                    flag = true;
+                };
+            }
+            if(flag) break;
+        }
+        //cout << "\n cnt after the +ve = "<< cnt << endl;
+    }
+
+    sort(v.begin(), v.end());
+    cout << endl << cnt << " cnt \n";
+    for(auto i : v) cout << i <<" ";
+    cout << endl << v[k -1];
     return 0;
 }
 /*
