@@ -11,11 +11,49 @@ const int MOD = 1e9 + 7;
 #define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
-
+    string s;
+    ll n, b =0 , bb = 0, tot = 0;
+    cin >> n >> s;
+    for(int i = 0; i < n; i++){
+        if(s[i] == ')'){
+            b++;
+        }
+        else bb++;
+    }
+    ll cntt = 0, cnt = 0, sum = 0, ans = 0;
+    if(bb != b) cout << -1 <<endl;
+    stack<char> sf;
+    int br = 0;
+    if(s[0] == '('){
+        cout << endl << "frst is  ( " << endl;
+        for(int i = 0; i < n; i++){
+            if(s[i] == '('){
+                br++;
+                sf.push('(');
+            }
+            else{
+                sf.pop();
+            }
+        }
+    }
+    else {
+        cout << endl << "first i ) " << endl;
+        for(int i = 0; i < n; i++){
+            if(s[i] == ')'){
+                br++;
+                sf.push(')');
+            }
+            else{
+                sf.pop();
+            }
+        }
+    }
+    cout << "asn = " << endl;
+    cout << sf.size()<<endl;
     return 0;
 }
 /*
-         ,--"""",--.__,---[],-------._         
+         ,--"""",--.__,---[],-------._
        ,"   __,'            \         \--""""""==;-
      ," _,-"  "/---.___     \       ___\   ,-'',"
     /,-'      / ;. ,.--'-.__\  _,-"" ,| `,'   /

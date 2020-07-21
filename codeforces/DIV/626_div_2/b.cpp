@@ -11,11 +11,38 @@ const int MOD = 1e9 + 7;
 #define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
-
+    ll i, j, c;
+    cin >> i >> j >> c;
+    int ai[i], aj[j];
+    for(int n = 0; n < i; n++){
+        cin >> ai[n];
+    }
+    for(int n = 0; n < j; n++){
+        cin >> aj[n];
+    }
+    int a[i][j];
+    for(int ii = 0; ii <i; ii++ ){
+        for(int jj = 0; jj < j; jj++){
+            a[ii][jj] = ai[ii] * aj[jj];
+        }
+    }
+    cout << endl;
+    for(int ii = 0; ii < i; ii++){
+        for(int jj = 0; jj < j; jj++){
+            cout << a[ii][jj] << " ";
+        }
+        cout << endl;
+    }
+    int x = i, xx =j;
+    while(x--){
+        for(int jj =0 ; jj < (j - c); jj++){
+            for(i)
+        }
+    }
     return 0;
 }
 /*
-         ,--"""",--.__,---[],-------._         
+         ,--"""",--.__,---[],-------._
        ,"   __,'            \         \--""""""==;-
      ," _,-"  "/---.___     \       ___\   ,-'',"
     /,-'      / ;. ,.--'-.__\  _,-"" ,| `,'   /

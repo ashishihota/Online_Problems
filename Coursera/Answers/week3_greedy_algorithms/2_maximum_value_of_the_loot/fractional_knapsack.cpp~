@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+    int n, size;
+    cin >> n >> size;
+    vector<pair<int, int>> vw(n);
+    vector<pair<double,int>> vp(n);
+    for(int i = 0; i < n; i++){
+        cin >> vw[i].first >> vw[i].second;
+        vp[i].first = double( vw[i].first/vw[i].second);
+        vp[i].second = vw[i].second;
+    }
+    sort(vp.begin(), vp.end(), greater<pair<double,int>>());
+    double end = 0;
+    for(int i = 0; i < vp.size(), size > 0; i++){
+        end += min(vp[i].second, size)*vp[i].first;
+        size -= min(vp[i].second, size);
+    }
+    cout << fixed << setprecision(4) << end << endl;
+}
+
