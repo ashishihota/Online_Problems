@@ -13,34 +13,26 @@ const int MOD = 1e9 + 7;
 int main() {
 	ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    ll initsum = 0, finalsum = 0;
-    ll n, r, rr, rev, m;
-    cin >> n >> r >> rr >> rev; 
-    for(int i = 1; i < 12; i++){
-        if(i == 1 || i == 3 || i == 5 || i == 7 || i == 8 || i == 10 || i == 12) m = 31;
-        else if(i == 2) m = 28;
-        else m = 30;
-        for(int j = 1; j <= m; j++){
-            int val = pow((6-i),2) + abs(j-15) * n;
-            initsum += val;
+    ll t;
+    cin >> t;
+    while(t--){
+        ll n;
+        cin >> n;
+        vector<int> v(n);
+        for(int i = 0; i < n; i++){
+            cin >> v[i];
         }
-    }
-    cout << "intit and req = " << initsum * rr << " " << initsum * r << endl;
-    ll cnt = 0;
-    while(initsum < rev){
-        for(int i = 1; i < 12; i++){
-             if(i == 1 || i == 3 || i == 5 || i == 7 || i == 8 || i == 10 || i == 12) m = 31;
-             else if( i == 2) m = 28;
-             else m = 30;
-             ll rem = m *;
-             ll add = m * r;
-             initsum += add;
-             initsum -= rem;
+        bool flag = false;
+        sort(v.begin(), v.end());
+        for(int i = 1; i < n; i++){
+            if(v[i] - v[i-1] > 1) {
+                flag = true;
+                break;
+            }
         }
-        cout << initsum << endl;
-        cnt++;
+        if(flag) cout << "NO" << endl;
+        else cout << "YES" << endl;
     }
-    cout << cnt;
     return 0;
 }
 /*

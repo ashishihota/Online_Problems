@@ -13,34 +13,58 @@ const int MOD = 1e9 + 7;
 int main() {
 	ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    ll initsum = 0, finalsum = 0;
-    ll n, r, rr, rev, m;
-    cin >> n >> r >> rr >> rev; 
-    for(int i = 1; i < 12; i++){
-        if(i == 1 || i == 3 || i == 5 || i == 7 || i == 8 || i == 10 || i == 12) m = 31;
-        else if(i == 2) m = 28;
-        else m = 30;
-        for(int j = 1; j <= m; j++){
-            int val = pow((6-i),2) + abs(j-15) * n;
-            initsum += val;
-        }
-    }
-    cout << "intit and req = " << initsum * rr << " " << initsum * r << endl;
-    ll cnt = 0;
-    while(initsum < rev){
-        for(int i = 1; i < 12; i++){
-             if(i == 1 || i == 3 || i == 5 || i == 7 || i == 8 || i == 10 || i == 12) m = 31;
-             else if( i == 2) m = 28;
-             else m = 30;
-             ll rem = m *;
-             ll add = m * r;
-             initsum += add;
-             initsum -= rem;
-        }
-        cout << initsum << endl;
-        cnt++;
-    }
-    cout << cnt;
+  	ll t;
+  	cin >> t;
+  	while(t--){
+  		ll n, m;
+  		cin >> n >> m;
+  		ll a[n][m];
+  		for(int i = 0; i < n; i++){
+  			for(int j = 0; j < m; j++){
+  				cin >> a[i][j];
+  			}
+  		}
+  		ll cnt = 0, item = 0;
+  		ll sum = 0;
+  		int looop = min(n,m);
+  		ll v[n][m];
+  		for(int i = 0; i < looop/2; i++){
+  			sum = 0; item = 0;
+  			for(int j = 0; j < m; j++){
+  				sum += a[i][j];
+  				sum += a[n-i-1][j];
+  				item += 2;
+  			}
+  			for(int j = cnt + 1; j < n-1; j++){
+  				sum += a[j][cnt];
+  				sum += a[j][m-cnt-1];
+  				item++;
+  			}
+
+  			ll avg = sum/item;
+  			ll ans_sum = 0;
+  			for(int j = 0; j < m; j++){
+  				ans_sum += (abs(avg-a[i][j]));
+  				ans_sum += (abs(avg-a[n-i-1][j]));
+  			}
+  			for(int j = cnt + 1; j < n-1; j++){
+  				ans_sum += (abs(avg-a[j][cnt]));
+  				ans_sum += (abs(avg-a[j][m-cnt-1]));
+  			}
+
+  			cout << "the answer should be" << ans_sum << endl;
+  			cnt++;
+  		}
+  		ll avg = sum/item;
+  		// for(int i = 0; i < n; i++){
+  		// 	for(int j = 0; j < m; j++){
+  		// 		tot += abs(a[i][j] - avg);
+  		// 	}
+  		// }
+  		// cout << total << endl;
+
+  	}
+
     return 0;
 }
 /*

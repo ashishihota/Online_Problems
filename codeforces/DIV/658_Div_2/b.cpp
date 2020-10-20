@@ -13,7 +13,41 @@ const int MOD = 1e9 + 7;
 int main() {
 	ios::sync_with_stdio(false);
     cin.tie(nullptr);
-
+    ll t;
+    cin >> t;
+    while(t--){
+        ll n, index = 0, prev = 0;
+        cin >> n;
+        vector<int> v(n);
+        int ans = 0, lastpick = 0;
+        for(int i = 0; i < n; i++){
+            cin >>v[i];
+            if(v[i] > 1){
+                index = i;
+            }
+        }
+            for(int i = 0; i < n; i++){
+                if(v[i] > 1){
+                    if(i == n-1){
+                        ans = prev;
+                        break;
+                    }
+                    prev = lastpick;
+                }
+                else if(i == index){
+                    prev = lastpick;
+            }
+                else{
+                    if(lastpick == 1){
+                        lastpick = 0;
+                    }else lastpick = 1;
+                    prev = lastpick;
+                }
+            }
+            ans = prev;
+        if(!ans) cout << "First" << endl;
+        else cout << "Second" << endl;
+    }
     return 0;
 }
 /*

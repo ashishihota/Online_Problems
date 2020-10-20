@@ -13,6 +13,35 @@ const int MOD = 1e9 + 7;
 int main() {
 	ios::sync_with_stdio(false);
     cin.tie(nullptr);
+    ll t;
+    cin >> t;
+    while(t--){
+        ll n, nn;
+        cin >> n >> nn;
+        vector<bool> s(1001, false);
+        for(int i = 0; i < n; i++){
+            int x;
+            cin >> x;
+            s[x] = true;
+        }
+        bool flag = false;
+        int ans;
+        for(int i = 0; i < nn; i++){
+            int x;
+            cin >> x;
+            if(s[x]){
+                flag = true;
+                ans = x;
+            }
+        }
+        if(!flag){
+            cout << "NO" <<  endl;
+        }
+        else{
+            cout << "YES" << endl;
+            cout << 1 <<  " " << ans << endl;
+        }
+    }
 
     return 0;
 }

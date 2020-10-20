@@ -13,34 +13,22 @@ const int MOD = 1e9 + 7;
 int main() {
 	ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    ll initsum = 0, finalsum = 0;
-    ll n, r, rr, rev, m;
-    cin >> n >> r >> rr >> rev; 
-    for(int i = 1; i < 12; i++){
-        if(i == 1 || i == 3 || i == 5 || i == 7 || i == 8 || i == 10 || i == 12) m = 31;
-        else if(i == 2) m = 28;
-        else m = 30;
-        for(int j = 1; j <= m; j++){
-            int val = pow((6-i),2) + abs(j-15) * n;
-            initsum += val;
-        }
+    ll t;
+    cin >> t;
+    while(t--){
+        ll cap1, cap2, w1, w2, cnt1, cnt2;
+        cin >> cap1 >> cap2 >> cnt1 >> cnt2 >> w1 >> w2;
+        int i = 1;
+        vector<int> f, ff;
+        for(int i = w1; i < w1 * cnt1; i += w1) f.push_back(i);
+        for(int i = w2; i < w2 * cnt2; i += w2) ff.push_back(i);
+
+        for(int i = 0; i < f.size(); i++) cout << f[i] << " ";
+        cout << endl;
+
+        for(int i = 0; i < ff.size(); i++) cout << ff[i] << " ";
+        cout << endl;
     }
-    cout << "intit and req = " << initsum * rr << " " << initsum * r << endl;
-    ll cnt = 0;
-    while(initsum < rev){
-        for(int i = 1; i < 12; i++){
-             if(i == 1 || i == 3 || i == 5 || i == 7 || i == 8 || i == 10 || i == 12) m = 31;
-             else if( i == 2) m = 28;
-             else m = 30;
-             ll rem = m *;
-             ll add = m * r;
-             initsum += add;
-             initsum -= rem;
-        }
-        cout << initsum << endl;
-        cnt++;
-    }
-    cout << cnt;
     return 0;
 }
 /*

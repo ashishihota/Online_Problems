@@ -13,34 +13,44 @@ const int MOD = 1e9 + 7;
 int main() {
 	ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    ll initsum = 0, finalsum = 0;
-    ll n, r, rr, rev, m;
-    cin >> n >> r >> rr >> rev; 
-    for(int i = 1; i < 12; i++){
-        if(i == 1 || i == 3 || i == 5 || i == 7 || i == 8 || i == 10 || i == 12) m = 31;
-        else if(i == 2) m = 28;
-        else m = 30;
-        for(int j = 1; j <= m; j++){
-            int val = pow((6-i),2) + abs(j-15) * n;
-            initsum += val;
+    ll t;
+    cin >> t;
+    while(t--){
+        ll n;
+        cin >> n;
+        string s;
+        cin >> s;
+        vector<int> v(n);
+        int cnt = 0;
+        for(int i = 0; i < n; i++){
+            char c = s[i];
+            int a = (int)(c);
+            v[i] = a - 48;
+            if(v[i] == 1) cnt++;
         }
-    }
-    cout << "intit and req = " << initsum * rr << " " << initsum * r << endl;
-    ll cnt = 0;
-    while(initsum < rev){
-        for(int i = 1; i < 12; i++){
-             if(i == 1 || i == 3 || i == 5 || i == 7 || i == 8 || i == 10 || i == 12) m = 31;
-             else if( i == 2) m = 28;
-             else m = 30;
-             ll rem = m *;
-             ll add = m * r;
-             initsum += add;
-             initsum -= rem;
+        vector<int> pref(n), suff(n);
+        for(int i = 0; i < n; i++){
+            pref[i] = v[i];
+            suff[i] = v[i];
         }
-        cout << initsum << endl;
-        cnt++;
+        pref[0] = v[0];
+        suff[n-1] = v[n-1];
+        for(int i = 1; i < n; i++){
+            pref[i] += pref[i-1];
+        }
+        for(int i = n - 2; i >= 0; i--){
+            suff[i] += suff[i+1];
+        }
+        for(int i = 1; i < n -1; i++){
+            if((suff[i] == i + 1) || (pref[i] == i + 1) ){
+                cnt++;
+            }
+        }
+        cout << "answer is == ";
+        cout << cnt << endl;
+        for(auto i : pref) cout << i << " "; cout << endl; for(auto i : suff) cout << i << " "; cout << endl;
+
     }
-    cout << cnt;
     return 0;
 }
 /*

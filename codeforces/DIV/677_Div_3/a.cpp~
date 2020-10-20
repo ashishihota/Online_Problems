@@ -13,34 +13,36 @@ const int MOD = 1e9 + 7;
 int main() {
 	ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    ll initsum = 0, finalsum = 0;
-    ll n, r, rr, rev, m;
-    cin >> n >> r >> rr >> rev; 
-    for(int i = 1; i < 12; i++){
-        if(i == 1 || i == 3 || i == 5 || i == 7 || i == 8 || i == 10 || i == 12) m = 31;
-        else if(i == 2) m = 28;
-        else m = 30;
-        for(int j = 1; j <= m; j++){
-            int val = pow((6-i),2) + abs(j-15) * n;
-            initsum += val;
+    int t;
+    cin >> t;
+    while(t--){
+        ll n;
+        cin >> n;
+        int i = 11111;
+        int cnt = 0;
+        while(i > n){
+           i /= 10;
         }
-    }
-    cout << "intit and req = " << initsum * rr << " " << initsum * r << endl;
-    ll cnt = 0;
-    while(initsum < rev){
-        for(int i = 1; i < 12; i++){
-             if(i == 1 || i == 3 || i == 5 || i == 7 || i == 8 || i == 10 || i == 12) m = 31;
-             else if( i == 2) m = 28;
-             else m = 30;
-             ll rem = m *;
-             ll add = m * r;
-             initsum += add;
-             initsum -= rem;
+        int ans = 0;
+        int rem  = n / i;
+        if(i == 1111){
+            ans += rem * 4;
+            ans += 54;
         }
-        cout << initsum << endl;
-        cnt++;
-    }
-    cout << cnt;
+        else if( i == 111){
+            ans += rem * 3;
+            ans += 27;
+        }
+        else if( i == 11){
+            ans += rem * 2;
+            ans += 9;
+        }
+        else{
+            ans += rem;
+        }
+        cout << ans << endl;
+     }
+
     return 0;
 }
 /*
