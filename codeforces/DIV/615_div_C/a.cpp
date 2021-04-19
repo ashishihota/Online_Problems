@@ -1,26 +1,4 @@
-#include <array>
-#include <cassert>
-#include <cstdio>
-#include <cstring>
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <vector>
-#include <queue>
-#include <stack>
-#include <list>
-#include <set>
-#include <map>
-#include <unordered_set>
-#include <unordered_map>
-#include <algorithm>
-#include <complex>
-#include <cmath>
-#include <numeric>
-#include <bitset>
-#include <functional>
-#include <random>
-#include <ctime>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -33,27 +11,28 @@ const int MOD = 1e9 + 7;
 #define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
-    ll num;
-    cin >> num;
-    while(num--){
-        ll a, b, c, n;
-        cin >> a >> b >> c >> n;
-        ll sum = a + b + c + n;
-        if(sum % 3 != 0) {
-            cout << "NO"<< endl;
-            continue;
-        }
-        else{
-            ll avg;
-            avg = sum / 3;
-            if(a > avg || b > avg || c > avg){
-                cout << "NO"<<endl;
-            }
-            else cout << "YES" <<endl;
-        }
+	ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+	ll t;
+  cin >> t;
+  while(t--){
+    ll n, a, b, c;
+    cin  >> a >> b >> c >> n;
+    if(a  == b && b == c) {
+      cout << "YES" << endl;
+      continue;
     }
-
-    return 0;
+    ll mx = max(a, max(b,c));
+    ll need = (mx - a) + (mx - b) + (mx - c);
+    if(need > n){
+      cout << "NO" << endl;
+      continue;
+    }
+    ll left = n - need;
+    if(left % 3) cout << "NO" << endl;
+    else cout << "YES" << endl; 
+  }
+  return 0;
 }
 /*
          ,--"""",--.__,---[],-------._

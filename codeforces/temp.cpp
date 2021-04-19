@@ -1,3 +1,6 @@
+/*                Read before you think                 */
+
+
 #include <bits/stdc++.h>
 
 using namespace std;

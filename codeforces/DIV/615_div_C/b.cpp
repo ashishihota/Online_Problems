@@ -1,27 +1,4 @@
-#include <array>
-#include <cassert>
-#include <cstdio>
-#include <cstring>
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <vector>
-#include <utility>
-#include <queue>
-#include <stack>
-#include <list>
-#include <set>
-#include <map>
-#include <unordered_set>
-#include <unordered_map>
-#include <algorithm>
-#include <complex>
-#include <cmath>
-#include <numeric>
-#include <bitset>
-#include <functional>
-#include <random>
-#include <ctime>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -34,30 +11,47 @@ const int MOD = 1e9 + 7;
 #define repp(i,a,b) for(i=a;i<b;++i)
 
 int main() {
-    ll num;
-    cin >> num;
-    while(num--){
-        ll n;
-        bool flag = false;
-        cin >> n;
-        std::vector<vector<ll>> v(n);
-        for(int i = 0;i < n; i++){
-            ll x , y;
-            cin >> x >> y;
-            v.push_back(x);
-            v[x] = y;
-            v[x][y] = 1;
-            if(x != y && v[y][x]){
-                cout << "NO"<<endl;
-                flag  = true;
-            }
+	ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+	ll t;
+  cin >> t;
+  while(t--){
+    ll n;
+    cin >> n;
+    vector<pair<int, int>> vp(n);
+    for(int i = 0; i < n; i++){
+      cin >> vp[i].first;
+      cin >> vp[i].second;
+    }
+    sort(vp.begin(), vp.end());
+    int sval = vp[0].second;
+    bool flag = true;
+    for(int i = 1; i < n; i++){
+      if(vp[i].second < sval) flag = false;
+      sval = vp[i].second;
+    }
+    if(!flag) cout << "NO" << endl;
+    else {
+      pair<int,int> pr = {0,0};
+      string s = "";
+      for(int i = 0; i < n; i++){
+        int right = vp[i].first - pr.first;
+        int up = vp[i].second - pr.second;
+        for(int j = 0; j < right; j++){
+          s += "R";
         }
-        //if(flag) continue;
-        sort(v.begin(), v.end());
+        for(int j = 0; j < up; j++){
+          s += "U";
+        }
+        pr = vp[i];
+      }
+    
+      cout << "YES" << endl;
+      cout << s << endl;
 
     }
-
-    return 0;
+  } 
+  return 0;
 }
 /*
          ,--"""",--.__,---[],-------._
