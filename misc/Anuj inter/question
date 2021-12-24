@@ -1,0 +1,74 @@
+Have the function StringChallenge(str1,str2) take both parameters being passed and return the string true if a portion of str1 characters can be rearranged to match str2, otherwise return the string false. For example: if str1 is "rkqodlw" and str2 is "world" the output should return true. Punctuation and symbols will not be entered with the parameters.
+Examples
+Input: "cdore" & str2 = "coder"
+Output: true
+Input: "h3llko" & str2 = "hello"
+Output: false
+
+
+
+
+
+Graph Challenge
+Have the function GraphChallenge(strArr) take strArr which will be an array of strings which models a non-looping Graph. The structure of the array will be as follows: The first element in the array will be the number of nodes N (points) in the array as a string. The next N elements will be the nodes which can be anything (A, B, C .. Brick Street, Main Street .. etc.). Then after the Nth element, the rest of the elements in the array will be the connections between all of the nodes. They will look like this: (A-B, B-C .. Brick Street-Main Street .. etc.). Although, there may exist no connections at all.
+
+An example of strArr may be: ["4","A","B","C","D","A-B","B-D","B-C","C-D"]. Your program should return the shortest path from the first Node to the last Node in the array separated by dashes. So in the example above the output should be A-B-D. Here is another example with strArr being ["7","A","B","C","D","E","F","G","A-B","A-E","B-C","C-D","D-F","E-D","F-G"]. The output for this array should be A-E-D-F-G. There will only ever be one shortest path for the array. If no path between the first and last node exists, return -1. The array will at minimum have two nodes. Also, the connection A-B for example, means that A can get to B and B can get to A.
+Examples
+Input: ["5","A","B","C","D","F","A-B","A-C","B-C","C-D","D-F"]
+Output: A-C-D-F
+Input: ["4","X","Y","Z","W","X-Y","Y-Z","X-W"]
+Output: X-W
+
+
+
+
+
+
+Have the function StringChallenge(str) take the str parameter and encode the message according to the following rule: encode every letter into its corresponding numbered position in the alphabet. Symbols and spaces will also be used in the input. For example: if str is "af5c a#!" then your program should return 1653 1#!.
+Examples
+Input: "hello 45"
+Output: 85121215 45
+Input: "jaj-a"
+Output: 10110-1
+
+
+	
+
+
+Have the function ArrayChallenge(arr) take the array of numbers stored in arr which will contain integers that represent the amount in dollars that a single stock is worth, and return the maximum profit that could have been made by buying stock on day x and selling stock on day y where y > x. For example: if arr is [44, 30, 24, 32, 35, 30, 40, 38, 15] then your program should return 16 because at index 2 the stock was worth $24 and at index 6 the stock was then worth $40, so if you bought the stock at 24 and sold it at 40, you would have made a profit of $16, which is the maximum profit that could have been made with this list of stock prices.
+
+If there is not profit that could have been made with the stock prices, then your program should return -1. For example: arr is [10, 9, 8, 2] then your program should return -1.
+
+
+
+
+
+Array Challenge
+Have the function ArrayChallenge(arr) read the array of integers stored in arr which will be in the following format: [K, r1, r2, r3, ...] where K represents the number of desks in a classroom, and the rest of the integers in the array will be in sorted order and will represent the desks that are already occupied. All of the desks will be arranged in 2 columns, where desk #1 is at the top left, desk #2 is at the top right, desk #3 is below #1, desk #4 is below #2, etc. Your program should return the number of ways 2 students can be seated next to each other. This means 1 student is on the left and 1 student on the right, or 1 student is directly above or below the other student.
+
+For example: if arr is [12, 2, 6, 7, 11] then this classrooms looks like the following picture:
+
+
+
+Based on above arrangement of occupied desks, there are a total of 6 ways to seat 2 new students next to each other. The combinations are: [1, 3], [3, 4], [3, 5], [8, 10], [9, 10], [10, 12]. So for this input your program should return 6. K will range from 2 to 24 and will always be an even number. After K, the number of occupied desks in the array can range from 0 to K.
+Examples
+Input: [6, 4]
+Output: 4
+Input: [8, 1, 8]
+Output: 6
+
+
+
+SQL Challenge
+Your table: maintable_43RIX
+
+MySQL version: 5.5.56-log
+
+In this MySQL challenge, your query should return the information for the employee with the third highest salary. Write a query that will find this employee and return that row, but then replace the DivisionID column with the corresponding DivisionName from the table cb_companydivisions. You should also replace the ManagerID column with the ManagerName if the ID exists in the table and is not NULL.
+
+Your output should look like the following table.
+
+
+
+
+

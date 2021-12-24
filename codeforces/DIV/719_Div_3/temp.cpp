@@ -1,4 +1,4 @@
-/*								Read before you think   							*/
+/*                Read before you think                 */
 
 
 #include <bits/stdc++.h>
@@ -13,14 +13,20 @@ const int MOD = 1e9 + 7;
 #define rep(i,b) for(i=0;i<b;++i)
 #define repp(i,a,b) for(i=a;i<b;++i)
 
+
+void solve(){
+
+}
+
+
 int main() {
-	ios::sync_with_stdio(false);
+    ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    int cnt = 1;
-    for(int i = 2; i <= 257; i++){
-      cnt ^= i;
-    }
-    cout << cnt << endl;
+    ll t = 1;
+    //cin >> t;
+    while(t--){
+      solve();
+    }	 
     return 0;
 }
 /*
@@ -64,3 +70,4 @@ int main() {
 ________________`"\/"\/\/'""""`\/"\/""\/"____________________________
 
 */
+
